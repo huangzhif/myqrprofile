@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load staticfiles %}
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--<style type="text/css">-->
+        <!--.row div {-->
+            <!--border: solid 1px red;-->
+            <!--background-color: blueviolet;-->
+            <!--height: 100px;-->
+            <!--text-align: center;-->
+        <!--}-->
+    <!--</style>-->
+</head>
+<body>
+<div class="container" style="width: 100%">
+    <div class="row show-grid">
+        <div class="col-md-12">
+            <!--<img src="{% static 'eg/qrs1.jpg' %}" height="200px">-->
+            <img src="{% static 'eg/cat.gif' %}" height="200px">
+            <img src="{% static 'eg/renjian.gif' %}" height="200px">
+            <img src="{% static 'eg/lostlost.png' %}" height="200px">
+
+            <div class="row">
+                <div class="col-xs-8 col-sm-6" align="left">
+                    <form action="." method="post"
+                          enctype="multipart/form-data">{% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit">提交</button>
+                        {% if img %}
+                        <img src={{ img }}>
+                        {% endif %}
+                    </form>
+                </div>
+                <div class="col-xs-4 col-sm-6">
+                    <strong>用法：</strong>
+                    <strong>1、选择图片：</strong>
+                    <img src="{% static 'eg/heart.jpg' %}" height="200px">
+                    <br>
+                    <hr>
+                    <strong>2、输入内容，点击提交</strong>
+                    <img src="{% static 'eg/1.png' %}" height="500px">
+                    <br>
+                    <hr>
+                    <strong>3、发给女盆友，扫码</strong>
+                    <img src="{% static 'eg/2.jpg' %}" height="500px">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
